@@ -49,7 +49,7 @@ class Staff::MessagesController < Staff::Base
 
   # POST/DELETE
   def tag
-    message = CustomerMessage.find(params[:id])
+    message = Message.find(params[:id])
     if request.post?
       message.add_tag(params[:label])
     elsif request.delete?

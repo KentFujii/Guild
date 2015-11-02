@@ -1,0 +1,8 @@
+<% @title = 'タグ管理' %>
+<h1><%= @title %></h1>
+
+<div class="table-wrapper">
+  <% @tags.each do |tag| %>
+    <span class='btn-default'><%= tag.value %></span>
+  <% end %>
+</div>
