@@ -21,7 +21,7 @@ Rails.application.routes.draw do
         end
       end
       resources :tag_categories
-      resources :tags, only: [:index] do
+      resources :tags do
         delete :remove_tag, on: :member
         resources :messages, only: [ :index ] do
           get :inbound, :outbound, :deleted, on: :collection
