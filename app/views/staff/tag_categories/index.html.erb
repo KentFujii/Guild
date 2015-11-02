@@ -1,0 +1,17 @@
+<% @title = 'タグカテゴリー管理' %>
+<h1><%= @title %></h1>
+
+<div class="table-wrapper">
+
+  <% @tag_categories.each do |category| %>
+    <li >
+      <div class="panel panel-default tags">
+        <span class='tag'>
+          <%= category.name %>
+          <%= link_to('', [:edit, :staff, category],
+            class: 'glyphicon glyphicon-cog', style: 'color: black; float: right') %>
+        </span>
+      </div>
+    </li>
+  <% end %>
+</div>

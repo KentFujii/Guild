@@ -20,6 +20,7 @@ Rails.application.routes.draw do
           post :confirm
         end
       end
+      resources :tag_categories
       resources :tags, only: [:index] do
         resources :messages, only: [ :index ] do
           get :inbound, :outbound, :deleted, on: :collection

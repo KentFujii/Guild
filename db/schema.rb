@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150914003833) do
+ActiveRecord::Schema.define(version: 20151102094231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -203,10 +203,22 @@ ActiveRecord::Schema.define(version: 20150914003833) do
   add_index "staff_members", ["email_for_index"], name: "index_staff_members_on_email_for_index", unique: true, using: :btree
   add_index "staff_members", ["family_name_kana", "given_name_kana"], name: "index_staff_members_on_family_name_kana_and_given_name_kana", using: :btree
 
-  create_table "tags", force: :cascade do |t|
-    t.string   "value",      null: false
+  create_table "tag_categories", force: :cascade do |t|
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tag_links", force: :cascade do |t|
+    t.integer "registrant_id", null: false
+    t.integer "tag_id",        null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.integer  "tag_category_id"
+    t.string   "value",           null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "tags", ["value"], name: "index_tags_on_value", unique: true, using: :btree

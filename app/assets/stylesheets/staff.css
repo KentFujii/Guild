@@ -1,4 +1,5 @@
 /*
+ *= require bootstrap/dist/css/bootstrap
  *= require jquery.ui.datepicker
  *= require jquery.tagit
  *= require_tree ./shared
