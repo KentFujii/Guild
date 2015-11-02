@@ -7,8 +7,14 @@
       <div class="panel panel-default tags">
         <span class='tag'>
           <%= tag.value %>
-          <%= link_to('', '#',
-            class: 'glyphicon glyphicon-remove', style: 'color: black; float: right') %>
+          <%= link_to('', [ :remove_tag, :staff, tag ],
+              class: 'glyphicon glyphicon-remove',
+              style: 'color: black; float: right',
+              method: :delete,
+              data: { confirm: '本当に削除してよろしいですか?' },
+              "data-tag-id" => "#{tag.id}"
+            )
+          %>
         </span>
       </div>
     </li>
