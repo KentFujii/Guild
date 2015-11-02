@@ -6,6 +6,6 @@ class Staff::TagCategoriesController < Staff::Base
 
   def edit
     @tag_categories = TagCategory.find(params[:id])
-    
+    @tags = @tag_categories.tags
   end
 end
