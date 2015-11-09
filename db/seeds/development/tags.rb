@@ -8,9 +8,10 @@ def create_tags(value, category=nil)
   end
 end
 
-tag_values = %w(
-  aaa bbb ccc ddd eee fff ggg hhh iii jjj kkk
-)
+tag_values = []
+("a" .. "z").each do |c|
+  tag_values << c * 3
+end
 
 tag_values.each do |value|
   create_tags(value, TagCategory.all.sample.id)
