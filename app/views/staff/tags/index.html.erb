@@ -1,0 +1,32 @@
+<% @title = 'タグ管理' %>
+<h1><%= @title %></h1>
+
+<div style='margin: 10px; '>
+  <input class="form-control" type="text">
+</div>
+<div style='text-align:center;'>
+  <button type="button" class="btn btn-success">
+    検索
+  </button>
+  <button type="button" class="btn btn-default">
+    クリア
+  </button>
+</div>
+
+<div class="table-wrapper">
+  <% @tags.each do |tag| %>
+    <li class='col-md-2 col-sm-3 col-xs-6'>
+      <div class="panel panel-default tags">
+        <%= tag.value %>
+        <%= link_to('', [ :remove_tag, :staff, tag ],
+            class: 'glyphicon glyphicon-remove',
+            style: 'color: black; float: right',
+            method: :delete,
+            data: { confirm: '本当に削除してよろしいですか?' },
+            "data-tag-id" => "#{tag.id}"
+          )
+        %>
+      </div>
+    </li>
+  <% end %>
+</div>
