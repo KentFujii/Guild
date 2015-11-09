@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       resources :tag_categories
       resources :tags do
         delete :remove_tag, on: :member
+        patch :search_tags, on: :collection
         resources :messages, only: [ :index ] do
           get :inbound, :outbound, :deleted, on: :collection
         end

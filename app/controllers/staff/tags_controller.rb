@@ -8,4 +8,11 @@ class Staff::TagsController < Staff::Base
     Tag.find(params[:id]).destroy
     redirect_to :back
   end
+
+  #PATCH(Ajax)
+  def search_tags
+    puts 'aaa' * 100
+    @tags = Tag.order(created_at: :desc)
+    render 'tags_table', layout: false
+  end
 end
