@@ -11,6 +11,7 @@ $(document).on('page:change', function() {
       success: function(data) {
         if (data.match(/<ul/)) {
           $('ul.tags-table').replaceWith(data);
+          console.log(data)
         }
         else {
           console.log(data);

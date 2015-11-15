@@ -1,13 +1,13 @@
-<ul class="table-wrapper tags-table">
+<ul class="tags-table", style="list-style:none;">
   <% @tags.each do |tag| %>
     <li class='col-md-2 col-sm-3 col-xs-6'>
       <div class="panel panel-default tags">
         <%= tag.value %>
-        <%= link_to('', [ :remove_tag, :staff, tag ],
-            class: 'glyphicon glyphicon-remove',
+        <%= link_to('', [ :staff, tag ],
+            class: 'glyphicon glyphicon-remove delete-tag',
             style: 'color: black; float: right',
             method: :delete,
-            data: { confirm: '本当に削除してよろしいですか?' },
+            remote: true,
             "data-tag-id" => "#{tag.id}"
           )
         %>
