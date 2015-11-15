@@ -8,10 +8,9 @@ class Staff::TagsController < Staff::Base
     redirect_to :back
   end
 
-  #PATCH(Ajax)
+  #GET(Ajax)
   def search_tags
-    @tags = Tag.search(params[:q])
-    # @tags = Tag.order(created_at: :desc)
+    @tags = Tag.where("value like '%" + params[:word] + "%'")
     render 'tags_table', layout: false
   end
 end

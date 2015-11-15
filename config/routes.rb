@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       end
       resources :tag_categories
       resources :tags do
-        patch :search_tags, on: :collection
+        get :search_tags, on: :collection
         resources :messages, only: [ :index ] do
           get :inbound, :outbound, :deleted, on: :collection
         end

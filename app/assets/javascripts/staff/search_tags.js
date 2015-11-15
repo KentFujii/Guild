@@ -1,22 +1,10 @@
 $(document).on('page:change', function() {
-  return $('.search_tags').on('click', function() {
-    // 「検索」ボタンに反応する
-    var search_form = $('.search_word');
-    var params = new RegExp(search_form.val());
-    console.log(params);
-    $.ajax({
-      type: "PATCH",
-      url: "/tags/search_tags",
-      data: {},
-      success: function(data) {
-        if (data.match(/<ul/)) {
-          $('ul.tags-table').replaceWith(data);
-          console.log(data)
-        }
-        else {
-          console.log(data);
-        }
-      }
+  return $(".search_word").on('keyup', function() {
+    console.log($(this).val())
+  	$.ajax({
+  		url: "tags/search_tags",
+  		type: "GET",
+  		data: { word: $(this).val() }
     });
-  });
+	});
 });

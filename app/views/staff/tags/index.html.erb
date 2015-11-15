@@ -1,16 +1,10 @@
 <% @title = 'タグ管理' %>
 <h1><%= @title %></h1>
 
-<%= form_tag :search_tags_staff_tags, method: :patch, remote: true do %>
-  <div style='margin: 10px; '>
-    <%= text_field_tag 'q', params[:q], class: 'form-control search_word' %>
-  </div>
-  <div style='text-align:center;'>
-    <%= submit_tag '検索', class: 'btn btn-success search_tags' %>
-    <button type="button" class="btn btn-default">
-      クリア
-    </button>
-  </div>
-<% end %>
+<div style='margin: 10px; '>
+  <input type="text" placeholder="search" id="search" class='form-control search_word'>
+</div>
 
-<%= render 'tags_table' %>
+<ul class="tags-table", style="list-style:none;">
+  <%= render 'tags_table' %>
+</ul>
