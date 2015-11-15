@@ -3,9 +3,13 @@ class Staff::TagsController < Staff::Base
     @tags = Tag.order(:created_at)
   end
 
+  def create
+    
+  end
+
   def destroy
     Tag.find(params[:id]).destroy
-    redirect_to :back
+    render nothing: true
   end
 
   #GET(Ajax)
