@@ -1,0 +1,6 @@
+<div style='margin: 10px;'>
+  <%= form_for [:staff, @tag] do |f| %>
+    <%= f.text_field :value,
+      class: 'form-control', required: true, placeholder: 'value' %>
+  <% end %>
+</div>

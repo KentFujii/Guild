@@ -1,10 +1,11 @@
 class Staff::TagsController < Staff::Base
   def index
     @tags = Tag.order(:created_at)
+    @tag = Tag.new
   end
 
   def create
-    
+
   end
 
   def destroy
