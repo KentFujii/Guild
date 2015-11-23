@@ -1,6 +1,8 @@
 <div style='margin: 10px;'>
-  <%= form_for [:staff, @tag] do |f| %>
-    <%= f.text_field :value,
-      class: 'form-control', required: true, placeholder: 'value' %>
-  <% end %>
+  <input type="text" placeholder="create tag" class='form-control create-tag-value'>
+</div>
+<div style='text-align:center;'>
+  <button type="button" class="btn btn-success create-tag">
+    タグ作成
+  </button>
 </div>

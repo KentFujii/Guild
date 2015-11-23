@@ -5,17 +5,30 @@ class Staff::TagsController < Staff::Base
   end
 
   def create
-
+    @tag = Tag.new(tag_params)
+    @tag.save
+    render json: {
+      value: @tag.value,
+      id: @tag.id
+    }
   end
 
   def destroy
-    Tag.find(params[:id]).destroy
-    render nothing: true
+    @tag = Tag.find(params[:id]).destroy
+    render json: {
+      tag: @tag
+    }
   end
 
   #GET(Ajax)
   def search_tags
     @tags = Tag.where("value like '%" + params[:word] + "%'")
     render 'tags_table', layout: false
+  end
+
+  private
+
+  def tag_params
+    params.require(:tag).permit(:value)
   end
 end

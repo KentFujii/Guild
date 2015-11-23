@@ -3,12 +3,10 @@
     <span class='col-md-2 col-sm-3 col-xs-6'>
       <div class="panel panel-default tags">
         <%= tag.value %>
-        <%= link_to('', [ :staff, tag ],
+        <%= tag('span',
             class: 'glyphicon glyphicon-remove delete-tag',
             style: 'color: black; float: right',
-            method: :delete,
-            remote: true,
-            "data-tag-id" => "#{tag.id}"
+            id: "#{tag.id}"
           )
         %>
       </div>

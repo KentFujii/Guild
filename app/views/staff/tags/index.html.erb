@@ -1,21 +1,11 @@
 <% @title = 'タグ管理' %>
 <h1><%= @title %></h1>
 
+<%= render 'form' %>
+
 <div style='margin: 10px; '>
   <input type="text" placeholder="search" id="search" class='form-control search_word'>
 </div>
 
 
 <%= render 'tags_table' %>
-
-
-<div style='text-align:center;'>
-  <button type="button" class="btn btn-success">
-    タグ作成
-  </button>
-  <button type="button" class="btn btn-default">
-    クリア
-  </button>
-</div>
-
-<%= render 'form' %>
